@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Nav from '../nav/dashnav/Nav'
 import GeneralModal from '../modals/GeneralModal'
+import Content from './review/Content'
 
 const AppWrapper = ({ children }) => {
     const [mode, setMode] = useState(false)
@@ -26,7 +27,10 @@ const AppWrapper = ({ children }) => {
 
             {
                 openfeedback && (
-                    <GeneralModal/>
+                    <GeneralModal
+                    // heading={"Hello world"}
+                        content={<Content/>}
+                    />
                 )
             }
         </div>

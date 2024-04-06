@@ -20,7 +20,9 @@ const Dashboard = () => {
 
         {
             openfeedback && (
-                <GeneralModal/>
+                <GeneralModal
+                    close={""}
+                />
             )
         }
     </div>
