@@ -7,7 +7,8 @@ import { data } from '@/components/dashboard/data'
 import { IoIosArrowForward } from "react-icons/io";
 import { TbMoon } from 'react-icons/tb'
 
-const Nav = ({ handleclick }) => {
+const Nav = ({ handleclick, handleOpenModal }) => {
+    
 
     return (
         <div className='flex flex-col px-[5%] py-5 gap-3 w-full bg-[var(--dash-color)] overflow-hidden sticky top-0'>
@@ -44,7 +45,7 @@ const Nav = ({ handleclick }) => {
                         <div className='flex flex-row items-center gap-3'>
                             <div>
                                 <button
-                                    // onClick={handleOpenModal} 
+                                    onClick={handleOpenModal} 
                                     className='flex uppercase bg-[var(--blue)] px-3 py-3 rounded-md text-white'>
                                     Leave a review
                                 </button>

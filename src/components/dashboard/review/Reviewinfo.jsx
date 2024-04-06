@@ -30,12 +30,12 @@ const Reviewinfo = () => {
                                         <p>{rev.like_no}</p>
                                     </span>
                                     <span className='flex flex-row items-center'>
-                                        <img src={rev.like} alt="" />
-                                        <p>{rev.like_no}</p>
+                                        <img src={rev.dislike} alt="" />
+                                        <p>{rev.dislike_no}</p>
                                     </span>
                                     <span className='flex flex-row items-center'>
-                                        <img src={rev.like} alt="" />
-                                        <p>{rev.like_no}</p>
+                                        <img src={rev.comment} alt="" />
+                                        <p>{rev.comment_no}</p>
                                     </span>
                                 </div>
                             </div>
