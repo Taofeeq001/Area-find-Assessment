@@ -9,8 +9,8 @@ const Dashboard = () => {
         setOpenfeedback(true)
     }
   return (
-    <div className='flex flex-col w-full h-[90vh] items-center justify-center'>
-        <div className='flex flex-col items-center gap-3'>
+    <div className='flex flex-col w-full h-[100vh] items-center justify-center'>
+        <div className='flex flex-col items-center gap-3 lg:px-[5%]'>
             <img src="/images/review.svg" alt="" />
             <p>Oops! No review yet</p>
             <div>

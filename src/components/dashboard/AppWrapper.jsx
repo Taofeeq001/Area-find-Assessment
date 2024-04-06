@@ -12,7 +12,7 @@ const AppWrapper = ({ children }) => {
         setMode(!mode)
     }
     return (
-        <div className='flex flex-col'>
+        <div className={`${mode ? "dark-mode" : "light-mode"} bg-[var(--secondary-color)] flex flex-col`}>
             <Nav
                 handleclick={handleClick}
 

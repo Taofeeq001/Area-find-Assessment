@@ -34,7 +34,7 @@ const Login = () => {
     }
     return (
         <div className='flex flex-col w-full h-[90vh] items-center justify-center'>
-            <div className='w-[25%] rounded-lg px-5 py-10 bg-[var(--primary-color)]'>
+            <div className='lg:w-[25%] w-[90%] rounded-lg px-5 py-10 bg-[var(--primary-color)]'>
                 <form className='flex flex-col gap-6 w-full' action="">
                     <span className='w-full items-center justify-center flex'>
                         <p className='text-2xl text-[var(--text-color)]'>Log in</p>

@@ -18,7 +18,10 @@ const Appwrapper = ({ children }) => {
       {
         pathname === "/dashboard" ? (
           ""
-        ) : <Navigation
+        ) : 
+        pathname === "/dashboard/review" ? (
+          ""
+        ):<Navigation
           handleclick={handleClick}
         />
       }
