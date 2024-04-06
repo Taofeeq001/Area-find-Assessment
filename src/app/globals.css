@@ -26,3 +26,6 @@
   --blue: #3366FF;
   --dash-color: #1E1E1E;
 }
+::-webkit-scrollbar{
+  display: none;
+}
