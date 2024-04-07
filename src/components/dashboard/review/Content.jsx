@@ -14,6 +14,7 @@ const Content = ({ close }) => {
     const [rating, setRating] = useState(0)
     const [details, setDetails] = useState("")
     const [loading, setLoading] = useState(false)
+    const [clicked, setClicked] = useState(false)
 
     const router = useRouter()
 
@@ -26,6 +27,10 @@ const Content = ({ close }) => {
     const ratingChanged = (newRating) => {
         setRating(newRating)
     };
+
+    const handleInput = ()=>{
+        setClicked(true)
+    }
 
     async function addDatatofirebase(rating, details, months) {
         try {
@@ -45,6 +50,9 @@ const Content = ({ close }) => {
     const handleSubmit = async (e) => {
         setLoading(true)
         e.preventDefault();
+        if(!clicked){
+            return;
+        }
         const add = await addDatatofirebase(rating, details, month)
         if (add) {
             setRating(0);
@@ -64,12 +72,12 @@ const Content = ({ close }) => {
             </div>
             {
                 open && (
-                    <div className='bg-gray-300 absolute rounded-md w-[92%] right-6 p-2 lg:gap-2 gap-4 grid lg:grid-cols-5 grid-cols-3 z-50'>
+                    <div className='bg-gray-300 absolute rounded-md lg:w-[92%] md:w-[95%] w-[86%] right-6 p-2 lg:gap-2 gap-4 grid lg:grid-cols-5 grid-cols-3 z-50'>
                         {
                             data.map((dat, index) => (
                                 <div key={index}>
                                     <span key={index} className='flex items-center gap-4'>
-                                        <input key={index} type="checkbox" name="" id="" />
+                                        <input key={index} type="checkbox" onClick={handleInput} name="" id="" />
                                         <p className='text-xs'>{dat.text}</p>
                                     </span>
                                 </div>
@@ -103,7 +111,7 @@ const Content = ({ close }) => {
 
 
             <div className='flex justify-between gap-3'>
-                <button onClick={handleSubmit} className='p-3 bg-[var(--blue)] cursor-pointer w-1/2 flex items-center justify-center rounded-md'>
+                <button onClick={handleSubmit} disabled={!clicked} className={`p-3 bg-[var(--blue)] cursor-pointer w-1/2 flex items-center justify-center rounded-md ${!clicked && 'opacity-50'}`}>
                     {
                         loading ? "Submitting..." : "Submit"
                     }
