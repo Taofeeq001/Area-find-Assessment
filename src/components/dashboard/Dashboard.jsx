@@ -2,28 +2,22 @@
 import React, { useEffect, useState } from 'react'
 import GeneralModal from '../modals/GeneralModal'
 import Reviewinfo from './review/Reviewinfo'
-import { db } from '@/app/firebaseConfig';
-import { collection, count, getDocs } from 'firebase/firestore';
+// import { db } from '@/app/firebaseConfig';
+// import { collection, count, getDocs } from 'firebase/firestore';
 import Review from './review/Review';
 import Image from 'next/image'
+import { useReviews } from '@/context/Review';
 const Dashboard = () => {
     const [openfeedback, setOpenfeedback] = useState(false)
-    const [reviews, setReviews] = useState([]);
+    
+    // Fetch review from the useContext
+    const review = useReviews();
 
-    useEffect(() => {
-        const fetchReviews = async () => {
-            const reviewsCollection = collection(db, 'Reviews');
-            const snapshot = await getDocs(reviewsCollection);
-            const reviewData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            setReviews(reviewData);
-        };
-
-        fetchReviews();
-    }, []);
-
+    //function to open modal
     const handleOpenModal = () => {
         setOpenfeedback(true)
     }
+    
     const handleClose = () => {
         setOpenfeedback(false)
     }
@@ -31,7 +25,7 @@ const Dashboard = () => {
     return (
         <>
             {
-                reviews.length === 0 ? (
+                review.length === 0 ? (
                     <div className='flex flex-col w-full h-[90vh] items-center justify-center'>
                         <div className='flex flex-col items-center gap-3 lg:px-[5%]'>
                             {/* <Image src="/images/review.svg" alt="" /> */}

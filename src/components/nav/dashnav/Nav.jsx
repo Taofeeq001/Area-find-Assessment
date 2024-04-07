@@ -1,13 +1,17 @@
-import React from 'react'
-import Link from 'next/link'
+'use client'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import { IoSearchOutline } from 'react-icons/io5'
 import { data } from '@/components/dashboard/data'
-// import { TbArrowRight } from 'react-icons/tb'
 import { IoIosArrowForward } from "react-icons/io";
 import { TbMoon } from 'react-icons/tb'
+import { useReviews } from '@/context/Review'
 
 const Nav = ({ handleclick, handleOpenModal }) => {
+    const review = useReviews();
+    console.log(review)
+
+    const number= review.length;
     return (
         <div className='flex flex-col px-[5%] py-5 gap-3 w-full bg-[var(--dash-color)] sticky top-0'>
             <div className='flex lg:flex-row flex-col w-full lg:justify-between items-center'>
@@ -37,7 +41,7 @@ const Nav = ({ handleclick, handleOpenModal }) => {
                 <div className='flex lg:flex-row flex-col w-full lg:justify-between items-center'>
                     <div>
                         <p className='font-bold text-[var(--text-color)]'>Bonny and Clyde Street, Ajao Estate, Lagos</p>
-                        <p className='text-[var(--text-color)]'>0 Reviews</p>
+                        <p className='text-[var(--text-color)]'>{number} Reviews</p>
                     </div>
                     <div>
                         <div className='flex flex-row items-center gap-3 lg:mt-0 mt-2'>
