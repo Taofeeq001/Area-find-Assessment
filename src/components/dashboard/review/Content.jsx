@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoIosArrowDown } from "react-icons/io";
 import Rate from './Rating';
 import { data } from '../data';
@@ -64,6 +64,19 @@ const Content = ({ close }) => {
 
     }
 
+    //function to close dropdown for select amenities
+    const closedropdown = (e) =>{
+        if(!e.target.closest(".drop")){
+            setOpen(false)
+        }
+    }
+    useEffect(()=>{
+        document.body.addEventListener("click", closedropdown)
+        return ()=>{
+            document.body.removeEventListener("click", closedropdown)
+        }
+    })
+
     return (
         <form>
             <div onClick={handleDrop} className='flex flex-row w-full justify-between cursor-pointer items-center bg-[#F3F7FE] p-2 rounded-md relative'>
@@ -72,7 +85,7 @@ const Content = ({ close }) => {
             </div>
             {
                 open && (
-                    <div className='bg-gray-300 absolute rounded-md lg:w-[92%] md:w-[95%] w-[86%] right-6 p-2 lg:gap-2 gap-4 grid lg:grid-cols-5 grid-cols-3 z-50'>
+                    <div className='bg-gray-300 drop absolute rounded-md lg:w-[92%] md:w-[95%] w-[86%] right-6 p-2 lg:gap-2 gap-4 grid lg:grid-cols-5 grid-cols-3 z-50'>
                         {
                             data.map((dat, index) => (
                                 <div key={index}>
