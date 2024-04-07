@@ -28,7 +28,7 @@ const Nav = ({ handleclick, handleOpenModal }) => {
                     <span onClick={handleclick}>
                         <TbMoon className='text-[var(--text-color)]'/>
                     </span>
-                    <p className='font-bold sm:text-xs md:text-xs text-[var(--text-color)]'>Welcome!</p>
+                    <p className='font-bold sm:text-xs md:text-xs text-[var(--text-color)]'>Welcome</p>
                     <Image width={40} height={40} src={"/images/avatar.svg"} />
                     {/* <Link href={"/login"} className='text-[#557FF2] font-bold'>Login</Link> */}
                 </div>
@@ -37,7 +37,7 @@ const Nav = ({ handleclick, handleOpenModal }) => {
                 <div className='flex lg:flex-row flex-col w-full lg:justify-between items-center'>
                     <div>
                         <p className='font-bold text-[var(--text-color)]'>Bonny and Clyde Street, Ajao Estate, Lagos</p>
-                        <p className='text-[var(--text-color)]'>"0" Reviews</p>
+                        <p className='text-[var(--text-color)]'>0 Reviews</p>
                     </div>
                     <div>
                         <div className='flex flex-row items-center gap-3 lg:mt-0 mt-2'>

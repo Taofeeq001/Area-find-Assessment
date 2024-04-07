@@ -63,8 +63,8 @@ const Content = ({ close }) => {
                     <div className='bg-gray-300 absolute rounded-md w-[92%] right-6 p-2 lg:gap-2 gap-4 grid lg:grid-cols-5 grid-cols-3 z-50'>
                         {
                             data.map((dat, index) => (
-                                <div>
-                                    <span className='flex items-center gap-4'>
+                                <div key={index}>
+                                    <span key={index} className='flex items-center gap-4'>
                                         <input key={index} type="checkbox" name="" id="" />
                                         <p className='text-xs'>{dat.text}</p>
                                     </span>

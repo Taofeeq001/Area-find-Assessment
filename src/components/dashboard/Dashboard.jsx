@@ -5,7 +5,7 @@ import Reviewinfo from './review/Reviewinfo'
 import { db } from '@/app/firebaseConfig';
 import { collection, count, getDocs } from 'firebase/firestore';
 import Review from './review/Review';
-
+import Image from 'next/image'
 const Dashboard = () => {
     const [openfeedback, setOpenfeedback] = useState(false)
     const [reviews, setReviews] = useState([]);
@@ -34,7 +34,8 @@ const Dashboard = () => {
                 reviews.length === 0 ? (
                     <div className='flex flex-col w-full h-[90vh] items-center justify-center'>
                         <div className='flex flex-col items-center gap-3 lg:px-[5%]'>
-                            <img src="/images/review.svg" alt="" />
+                            {/* <Image src="/images/review.svg" alt="" /> */}
+                            <Image width={450} height={450} src={"/images/review.svg"} />
                             <p>Oops! No review yet</p>
                             <div>
                                 <button onClick={handleOpenModal} className='flex uppercase bg-[var(--blue)] px-6 py-3 rounded-md text-white'>Leave a review</button>

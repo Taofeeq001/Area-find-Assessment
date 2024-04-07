@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { review } from '../data'
 import { db } from '@/app/firebaseConfig';
 import { collection, count, getDocs } from 'firebase/firestore';
+import Image from 'next/image'
 
 const Reviewinfo = ({onReviewAvailable}) => {
     const [reviews, setReviews] = useState([]);
@@ -31,14 +32,14 @@ const Reviewinfo = ({onReviewAvailable}) => {
                         <div className='border-b py-4' >
                             <div className='flex flex-row justify-between'>
                                 <div className='flex flex-row gap-1 items-center'>
-                                    <img src="/images/pics.png" alt="" />
+                                    <Image width={30} height={30} src="/images/pics.png" alt="" />
                                     <span className='flex flex-row items-center'>
                                         <b>User Y.</b>
                                         <p>{rev.months} months ago</p>
                                     </span>
                                 </div>
                                 <div className='flex flex-row items-center gap-1'>
-                                    <img src="/images/Rating.png" alt="" />
+                                    <Image width={30} height={30} src="/images/Rating.png" alt="" />
                                     <p>{rev.rating}</p>
                                 </div>
 
@@ -47,15 +48,15 @@ const Reviewinfo = ({onReviewAvailable}) => {
                                 <p>{rev.details}</p>
                                 <div className='flex flex-row gap-3'>
                                     <span className='flex flex-row items-center'>
-                                        <img src="/images/like.png" alt="" />
+                                        <Image width={30} height={30} src="/images/like.png" alt="" />
                                         <p>{count1}</p>
                                     </span>
                                     <span className='flex flex-row items-center'>
-                                        <img src="/images/dislike.png" alt="" />
+                                        <Image width={30} height={30} src="/images/dislike.png" alt="" />
                                         <p>{count2}</p>
                                     </span>
                                     <span className='flex flex-row items-center'>
-                                        <img src="/images/comment.png" alt="" />
+                                        <Image width={30} height={30} src="/images/comment.png" alt="" />
                                         <p>{comment}</p>
                                     </span>
                                 </div>
