@@ -13,7 +13,7 @@ const Nav = ({ handleclick, handleOpenModal }) => {
 
     const number= review.length;
     return (
-        <div className='flex flex-col px-[5%] py-5 gap-3 w-full bg-[var(--dash-color)] sticky top-0'>
+        <div className='flex flex-col px-[5%] py-5 gap-3 w-full bg-[var(--dash-color)] sticky top-0 z-[500]'>
             <div className='flex lg:flex-row flex-col w-full lg:justify-between items-center'>
                 <div className='flex lg:flex-row items-center'>
                     <div className='flex lg:flex-row gap-1 items-center lg:w-[150px] w-[150px]'>

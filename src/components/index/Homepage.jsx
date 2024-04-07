@@ -23,7 +23,7 @@ const Homepage = () => {
                 <form className='flex flex-col gap-3 lg:items-start items-center' action="">
                     <div className='border border-[#D4DCF1] w-full bg-[#F3F7FE] rounded-lg flex flex-row items-center pl-2'>
                         <IoSearchOutline className='text-2xl text-black' />
-                        <input type="text" placeholder='Enter Address' className='p-3 font-semibold outline-none border-none bg-transparent text-[var(--text-color)]' />
+                        <input type="text" placeholder='Enter Address' className='p-3 font-semibold outline-none border-none bg-transparent text-black' />
                     </div>
                     <div>
                         <button className='cursor-pointer py-3 px-8 bg-[var(--blue)] rounded-md border-2 border-[var(--blue)] text-white font-semibold hover:bg-white hover:text-[var(--blue)]'>Search</button>
