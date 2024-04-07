@@ -1,32 +1,65 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import GeneralModal from '../modals/GeneralModal'
+import Reviewinfo from './review/Reviewinfo'
+import { db } from '@/app/firebaseConfig';
+import { collection, count, getDocs } from 'firebase/firestore';
+import Review from './review/Review';
 
 const Dashboard = () => {
     const [openfeedback, setOpenfeedback] = useState(false)
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+            const reviewsCollection = collection(db, 'Reviews');
+            const snapshot = await getDocs(reviewsCollection);
+            const reviewData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setReviews(reviewData);
+        };
+
+        fetchReviews();
+    }, []);
 
     const handleOpenModal = () => {
         setOpenfeedback(true)
     }
-  return (
-    <div className='flex flex-col w-full h-[100vh] items-center justify-center'>
-        <div className='flex flex-col items-center gap-3 lg:px-[5%]'>
-            <img src="/images/review.svg" alt="" />
-            <p>Oops! No review yet</p>
-            <div>
-                <button onClick={handleOpenModal} className='flex uppercase bg-[var(--blue)] px-6 py-3 rounded-md text-white'>Leave a review</button>
-            </div>
-        </div>
+    const handleClose = () => {
+        setOpenfeedback(false)
+    }
 
-        {
-            openfeedback && (
-                <GeneralModal
-                    close={""}
-                />
-            )
-        }
-    </div>
-  )
+    return (
+        <>
+            {
+                reviews.length === 0 ? (
+                    <div className='flex flex-col w-full h-[90vh] items-center justify-center'>
+                        <div className='flex flex-col items-center gap-3 lg:px-[5%]'>
+                            <img src="/images/review.svg" alt="" />
+                            <p>Oops! No review yet</p>
+                            <div>
+                                <button onClick={handleOpenModal} className='flex uppercase bg-[var(--blue)] px-6 py-3 rounded-md text-white'>Leave a review</button>
+                            </div>
+                        </div>
+
+                        {
+                            openfeedback && (
+                                <GeneralModal
+                                    close={handleClose}
+                                />
+                            )
+                        }
+                    </div>
+                ) :
+                (
+                    <Review/>
+                )
+            }
+
+
+
+
+        </>
+    )
 }
 
 export default Dashboard

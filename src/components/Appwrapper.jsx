@@ -14,7 +14,7 @@ const Appwrapper = ({ children }) => {
     setMode(!mode)
   }
   return (
-    <div className={`${mode ? "dark-mode" : "light-mode"} bg-[var(--secondary-color)]`}>
+    <div className={`${mode ? "dark-mode" : "light-mode"} `}>
       {
         pathname === "/dashboard" ? (
           ""
