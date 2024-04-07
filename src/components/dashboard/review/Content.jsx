@@ -86,12 +86,7 @@ const Content = ({ close }) => {
                     onChange={ratingChanged}
                     size={24}
                     activeColor="#ffd700"
-                />,
-                {/* <Rate
-                    rating={rating}
-                    handleRating={handleRating}
-                /> */}
-                {/* <Rating style={{display:'flex',flexDirection:"row"}} onClick={handleRating} ratingValue={rating} size={20} /> */}
+                />
             </div>
             <div>
                 <p>Write Review</p>
