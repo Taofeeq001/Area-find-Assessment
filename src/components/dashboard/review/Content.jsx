@@ -45,7 +45,7 @@ const Content = ({ close }) => {
     const handleSubmit = async (e) => {
         setLoading(true)
         e.preventDefault();
-        const add = await addDatatofirebase(rating, details)
+        const add = await addDatatofirebase(rating, details, month)
         if (add) {
             setRating(0);
             setDetails("")
