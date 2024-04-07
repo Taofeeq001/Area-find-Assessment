@@ -11,7 +11,7 @@ const Nav = ({ handleclick, handleOpenModal }) => {
     const review = useReviews();
     // console.log(review)
 
-    const number= review.length;
+    const number = review.length;
     return (
         <div className='flex flex-col px-[5%] py-5 gap-3 w-full bg-[var(--dash-color)] sticky top-0 z-[500]'>
             <div className='flex lg:flex-row flex-col w-full lg:justify-between items-center'>
@@ -30,7 +30,7 @@ const Nav = ({ handleclick, handleOpenModal }) => {
 
                 <div className='flex flex-row space-x-2 items-center lg:mt-0 mt-3 '>
                     <span onClick={handleclick}>
-                        <TbMoon className='text-[var(--text-color)]'/>
+                        <TbMoon className='text-[var(--text-color)]' />
                     </span>
                     <p className='font-bold sm:text-xs md:text-xs text-[var(--text-color)]'>Welcome</p>
                     <Image width={40} height={40} src={"/images/avatar.svg"} />
@@ -44,19 +44,24 @@ const Nav = ({ handleclick, handleOpenModal }) => {
                         <p className='text-[var(--text-color)]'>{number} Reviews</p>
                     </div>
                     <div>
-                        <div className='flex flex-row items-center gap-3 lg:mt-0 mt-2'>
-                            <div>
-                                <button
-                                    onClick={handleOpenModal} 
-                                    className='flex uppercase bg-[var(--blue)] lg:text-[13px] md:text-[10px] text-[8px] px-3 py-3 rounded-md text-white'>
-                                    Leave a review
-                                </button>
-                            </div>
-                            <div className='flex flex-row gap-2'>
-                                <img className='lg:w-full lg:h-[45px] h-[30px] w-[50%]' src="/images/Button.png" alt="" />
-                                <img className='lg:w-full lg:h-[45px] h-[30px] w-[50%]' src="/images/share (2).png" alt="" />
-                            </div>
-                        </div>
+                        {
+                            review.length === 0 ? ""
+                                :
+                                <div className='flex flex-row items-center gap-3 lg:mt-0 mt-2'>
+                                    <div>
+                                        <button
+                                            onClick={handleOpenModal}
+                                            className='flex uppercase bg-[var(--blue)] lg:text-[13px] md:text-[10px] text-[8px] px-3 py-3 rounded-md text-white'>
+                                            Leave a review
+                                        </button>
+                                    </div>
+                                    <div className='flex flex-row gap-2'>
+                                        <img className='lg:w-full lg:h-[45px] h-[30px] w-[50%]' src="/images/Button.png" alt="" />
+                                        <img className='lg:w-full lg:h-[45px] h-[30px] w-[50%]' src="/images/share (2).png" alt="" />
+                                    </div>
+                                </div>
+                        }
+
                     </div>
                 </div>
 
