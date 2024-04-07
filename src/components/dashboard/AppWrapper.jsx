@@ -28,7 +28,6 @@ const AppWrapper = ({ children }) => {
             {
                 openfeedback && (
                     <GeneralModal
-                    // heading={"Hello world"}
                         content={<Content/>}
                     />
                 )

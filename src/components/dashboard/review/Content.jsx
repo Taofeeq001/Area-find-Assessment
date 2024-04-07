@@ -1,13 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { IoIosArrowDown } from "react-icons/io";
-import Rate from './Rating';
 import { data } from '../data';
 import { db } from '@/app/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useRouter } from 'next/navigation';
 import ReactStars from "react-rating-stars-component";
 const Content = ({ close }) => {
     const [open, setOpen] = useState(false)
@@ -16,7 +14,6 @@ const Content = ({ close }) => {
     const [loading, setLoading] = useState(false)
     const [clicked, setClicked] = useState(false)
 
-    const router = useRouter()
 
     //function to get random numbers to be used for month
     const month = Math.floor(Math.random() * 12);

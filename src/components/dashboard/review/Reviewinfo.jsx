@@ -24,7 +24,6 @@ const Reviewinfo = ({onReviewAvailable}) => {
     // console.log(reviews)
    
     return (
-        // <div></div>
         <div className='flex flex-col gap-4'>
             {
                 reviews.map((rev, index) => (

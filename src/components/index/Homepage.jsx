@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect } from 'react'
-import Image from 'next/image'
 import { IoSearchOutline } from "react-icons/io5";
 import AOS from "aos";
 import "aos/dist/aos.css";

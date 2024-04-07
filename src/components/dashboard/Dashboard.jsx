@@ -34,7 +34,6 @@ const Dashboard = () => {
                 review.length === 0 ? (
                     <div className='flex flex-col w-full h-[90vh] items-center justify-center'>
                         <div data-aos="fade-up" className='flex flex-col items-center gap-3 lg:px-[5%]'>
-                            {/* <Image src="/images/review.svg" alt="" /> */}
                             <Image width={300} height={300} src={"/images/review.svg"} />
                             <p>Oops! No review yet</p>
                             <div>
