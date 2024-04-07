@@ -11,6 +11,7 @@ const Login = () => {
     const [pass, setPass] = useState("")
     const [error, setError] = useState("")
     const [error1, setError1] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const router  = useRouter()
 
@@ -22,13 +23,17 @@ const Login = () => {
 
     //submit credentials to login
     const handleSubmit = (e) => {
+        setLoading(true)
         e.preventDefault();
         if (!email) {
             setError(true)
+            setLoading(false)
         } else if (!pass) {
             setError(false)
             setError1(true)
+            setLoading(false)
         }else{
+            setLoading(false)
             router.push("/dashboard")
         }
     }
@@ -71,7 +76,11 @@ const Login = () => {
 
                         </span>
                     </div>
-                    <button onClick={handleSubmit} className='bg-[var(--blue)] p-3 rounded-md'>Login</button>
+                    <button onClick={handleSubmit} className='bg-[var(--blue)] p-3 rounded-md'>
+                        {
+                            loading? "Loading..." :"Login"
+                        }
+                    </button>
                 </form>
                 <div className='flex mt-4 flex-row items-center'>
                     <p className='w-full h-[1px] bg-black'></p>

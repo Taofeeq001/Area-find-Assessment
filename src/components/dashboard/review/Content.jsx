@@ -8,22 +8,24 @@ import { collection, addDoc } from 'firebase/firestore';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation';
+import ReactStars from "react-rating-stars-component";
 const Content = ({ close }) => {
     const [open, setOpen] = useState(false)
     const [rating, setRating] = useState(0)
     const [details, setDetails] = useState("")
-    // const [date, setDate] = useState("")
-    // const router = useRouter()
+    const [loading, setLoading] = useState(false)
 
+    const router = useRouter()
 
+    //function to get random numbers to be used for month
     const month = Math.floor(Math.random() * 12);
     const handleDrop = () => {
         setOpen(!open)
     }
 
-    const handleRating = (rate) => {
-        setRating(rate)
-    }
+    const ratingChanged = (newRating) => {
+        setRating(newRating)
+    };
 
     async function addDatatofirebase(rating, details, months) {
         try {
@@ -41,13 +43,15 @@ const Content = ({ close }) => {
     }
 
     const handleSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault();
         const add = await addDatatofirebase(rating, details)
         if (add) {
             setRating(0);
             setDetails("")
             toast.success("Review Added Successfully")
-            // router.refresh()
+            setLoading(false)
+            window.location.href="/dashboard"
         }
 
     }
@@ -77,10 +81,16 @@ const Content = ({ close }) => {
             }
             <div>
                 <p>Rate location</p>
-                <Rate
+                <ReactStars
+                    count={5}
+                    onChange={ratingChanged}
+                    size={24}
+                    activeColor="#ffd700"
+                />,
+                {/* <Rate
                     rating={rating}
                     handleRating={handleRating}
-                />
+                /> */}
                 {/* <Rating style={{display:'flex',flexDirection:"row"}} onClick={handleRating} ratingValue={rating} size={20} /> */}
             </div>
             <div>
@@ -99,7 +109,9 @@ const Content = ({ close }) => {
 
             <div className='flex justify-between gap-3'>
                 <button onClick={handleSubmit} className='p-3 bg-[var(--blue)] cursor-pointer w-1/2 flex items-center justify-center rounded-md'>
-                    Submit
+                    {
+                        loading ? "Submitting..." : "Submit"
+                    }
                 </button>
                 <button onClick={close} className='p-3 border-[1px] border-[var(--blue)] cursor-pointer text-[var(--blue)] w-1/2 flex items-center justify-center rounded-md'>
                     Cancel

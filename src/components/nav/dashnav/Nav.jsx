@@ -9,14 +9,14 @@ import { useReviews } from '@/context/Review'
 
 const Nav = ({ handleclick, handleOpenModal }) => {
     const review = useReviews();
-    console.log(review)
+    // console.log(review)
 
     const number= review.length;
     return (
         <div className='flex flex-col px-[5%] py-5 gap-3 w-full bg-[var(--dash-color)] sticky top-0'>
             <div className='flex lg:flex-row flex-col w-full lg:justify-between items-center'>
                 <div className='flex lg:flex-row items-center'>
-                    <div className='flex lg:flex-row gap-1 items-center lg:w-[150px] w-[120px]'>
+                    <div className='flex lg:flex-row gap-1 items-center lg:w-[150px] w-[150px]'>
                         <p className='font-bold lg:text-[14px] text-xs text-[var(--text-color)]'>S P O T T A</p>
                         <span >
                             <p className='bg-[#5378F6] rounded-md w-fit p-1 text-white font-bold text-xs'>NG</p>
